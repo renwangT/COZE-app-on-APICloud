@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <link rel="stylesheet" type="text/css" href="./css/aui-slide.css" />
+    <link rel="stylesheet" href="../../public/css/style.css">
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="input-container">
+            <div class="aui-searchbar" id="search">
+                <div class="aui-searchbar-input aui-border-radius">
+                    <i class="aui-iconfont aui-icon-search"></i>
+                    <input type="search" placeholder="请输入搜索内容" id="search-input">
+                    <div class="aui-searchbar-clear-btn">
+                        <i class="aui-iconfont aui-icon-close"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="aui-slide3">
+		    <div class="aui-slide-wrap" >
+		        <div class="aui-slide-node bg-dark">
+		            <img src="img/1.png" />
+		        </div>
+		        <div class="aui-slide-node bg-dark">
+		            <img src="img/2.jpg" />
+		        </div>
+		        <div class="aui-slide-node bg-dark">
+		            <img src="img/3.jpg" />
+		        </div>
+		    </div>
+		    <div class="aui-slide-page-wrap"><!--分页容器--></div>
+		</div>
+    </div>
+    <div class="nav-bar-group both">
+
+        <div tapmode onclick="switchItem(0)" class="item">
+            <div class="img-container">
+                <img src="../../public/image/1.png" alt="">
+            </div>
+            <p>名师课堂</p>
+        </div>
+        <div tapmode onclick="switchItem(1)" class="item">
+            <div class="img-container">
+                <img src="../../public/image/2.jpg" alt="">
+            </div>
+            <p>亲子教育</p>
+        </div>
+        <div tapmode onclick="switchItem(2)" class="item">
+            <div class="img-container">
+                <img src="../../public/image/3.png" alt="">
+            </div>
+            <p>健康养生</p>
+        </div>
+        <div tapmode onclick="switchItem(3)" class="item">
+            <div class="img-container">
+                <img src="../../public/image/4.png" alt="">
+            </div>
+            <p>父母课堂</p>
+        </div>
+        <div tapmode onclick="switchItem(4)" class="item">
+            <div class="img-container">
+                <img src="../../public/image/5.jpg" alt="">
+            </div>
+            <p>全部分类</p>
+        </div>
+    </div>
+    <div class="news-container aui-content aui-border-t aui-row">
+        <div class=" aui-col-xs-2 aui-border-r aui-text-center">
+            <img class="news" src="./img/news.png" alt="">
+        </div>
+        <div class="aui-col-xs-8 aui-border-r aui-padded-l-10">
+            <span class="text-h aui-text-default">[04-27]手机绑定以上线！</span>
+        </div>
+        <div class="aui-col-xs-2 aui-text-center">
+            <span class="text-h aui-text-danger">更多</span>
+        </div>
+    </div>
+    <div class="m-t aui-content">
+        <div class="title flex-wrap flex-middle">
+            <span class="b-l-2"></span><span style="padding-left:4px;">最新更新</span>
+        </div>
+    </div>
+    <div class="newest aui-border-b">
+        <div tapmode onclick="fnOpenDetails()" class="list flex-wrap">
+            <div class="list-l">
+                <p>2人已学习</p>
+            </div>
+            <div class="list-r flex-con flex-vertical">
+                <h4 class="flex-con">三江茶话</h4>
+                <p class="flex-con">免费</p>
+                <div class="f-c flex-con">
+                    <div class="f-l">共<span class="num">5</span>节课</div>
+                    <div class="f-r"><span>100%</span>好评</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div tapmode onclick="fnOpenDetails()" class="pull">
+
+        </div>
+    </div>
+    <script src="../../public/script/api.js"></script>
+    <script src="./script/home.js"></script>
+    <script src="./script/aui-slide.js"></script>
+    <script>
+    	apiready = function(){
+    		api.parseTapmode();
+    		 var slide3 = new auiSlide({
+		        container:document.getElementById("aui-slide3"),
+		        // "width":300,
+		        "height":200,
+		        "speed":500,
+		        "autoPlay": 3000, //自动播放
+		        "loop":true,
+		        "pageShow":true,
+		        "pageStyle":'dot',
+		        'dotPosition':'right'
+		    })
+    	}
+    	
+    	function fnOpenDetails(){
+    		api.openWin({
+	            name: 'details',
+	            url: '../details/details.html'
+            });
+    	}
+    	
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/my_center.css" />
+    <link rel="stylesheet" type="text/css" href="./cssfont/fontello.css" />
+</head>
+<body>
+    <div class="header-top">
+    	<div class="bg-color flex-wrap flex-center flex-middle">
+    		<div class="setting">
+	            <img tapmode onclick="fnOpenSetting()" class="on" src="./imgs/settings.png" alt="" />
+	        </div>
+	        <div class="vip-img">
+	        	<img src="./imgs/vip-icon.png" alt="" />
+	        </div>
+	        <div class="header-cont">
+	        	<div class="h-container flex-wrap flex-middle flex-middle">
+	        		<img src="./imgs/head_img.jpg" alt="" />
+	        	</div>
+	        	<p>未设置</p>
+	        	<p class="name-cont">学号:000002</p>
+	        </div>
+	        <div class="water">
+	        	
+	        	<img class="wave" src="./imgs/wave.png" alt="" />
+	        	
+	        	
+	        	<img class="wave wave-bg" src="./imgs/wave.png" alt="" />
+		
+	        </div>
+    	</div>
+        
+    </div>
+    <div class="middle flex-wrap">
+    	<div class="m-container flex-con">
+    		<div class="num">
+    			￥0.00
+    		</div>
+    		<p>会员余额</p>
+    	</div>
+    	<div class="m-container flex-con">
+    		<div class="num">
+    			0.00
+    		</div>
+    		<p>会员积分</p>
+    	</div>
+    </div>
+    <div class="list-item flex-wrap">
+    	<div class="flex-con">
+    		<ul>
+    			<li><i class="icon-diamond orange"></i>vip服务<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-heart red"></i>收藏课程<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-free-code-camp orange"></i>讲师中心<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-money pink"></i>优惠券<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-shopping-bag blue"></i>在线商城<i class="icon-angle-right"></i></li>
+    		</ul>	
+    	</div>
+    	<div class="flex-con">
+    		<ul>
+    			<li><i class="icon-hourglass-2 blue"></i>我的足迹<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-gittip red"></i>收藏讲师<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-share red"></i>佣金排名<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-mobile pink"></i>修改手机<i class="icon-angle-right"></i></li>
+    			<li><i class="icon-videocam blue"></i>在线直播<i class="icon-angle-right"></i></li>
+    		</ul>
+    	</div>
+    	
+    </div>
+    
+    <div tapmode onclick="fnLogout()" class="footer-btn">
+    	退出登录
+    </div>
+</body>
+<script src="../../public/script/api.js"></script>
+<script>
+	apiready = function(){
+		api.parseTapmode();
+	}
+	function fnOpenSetting(){
+		api.openWin({
+	        name: 'setting',
+	        url: '../setting/setting.html'
+        });
+	}
+	function fnLogout(){
+		        
+        $api.clearStorage()
+        api.openWin({
+            name: 'login',
+            url: '../login/login.html'
+        });
+	}
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>无密码登录</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css"/>
+    <link rel="stylesheet" href="./css/css/fontello.css" />
+    <style>
+    	body,html{
+    		height:100%;
+    	}
+        p{
+    		line-height: 50px;
+    		text-indent: 10px;
+    		color : #979797;
+    	}
+    </style>
+</head>
+<body>
+	
+    <p>请输入手机号,以收取验证码</p>
+	
+	<div class="enter-cont">
+			<div class="list">
+				<div class="item-container flex-wrap flex-middle">
+					<label for="phone"><i class="icon-user"></i></label>
+					<input class="flex-con" type="number" id="phone" placeholder="手机号"/>
+				</div>
+				
+			</div>
+		</div>
+		<div class="foot">
+			<div class="btn">
+				<span>下一步</span>
+			</div>
+		</div>
+		<div class="foot-item">
+			<div class="foot-container flex-wrap flex-center flex-middle">
+				<div tapmode onclick="fnLogin()" class="regsiter"><span>立即登录</span></div>
+				<div class="center-border">|</div>
+				<div  class="no-pwd"><span>邮箱注册</span></div>
+				<div class="center-border">|</div>
+				<div tapmode onclick="fnFindPwd()" class="no-pwd"><span>找回密码</span></div>
+			</div>
+		</div>
+</body>
+<script type="text/javascript" src="../../public/script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		api.parseTapmode();
+	};
+	function fnLogin(){
+		api.closeToWin({
+			name:'login'
+		})
+	}
+	function fnFindPwd(){
+		api.openWin({
+	        name: 'find-pwd',
+	        url: 'find-pwd.html'
+        });
+	}
+</script>
+</html>

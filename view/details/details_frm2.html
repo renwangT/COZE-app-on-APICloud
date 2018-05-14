@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/fontello.css"/>
+    <style>
+    	body,html{
+    		height:100%;
+    		background-color: rgb(241,241,245);
+    		border-bottom:1px solid transparent;
+    	}
+    	header{
+    		padding:0 10px;
+    		margin-top:2px;
+    		background-color:#fff;
+    	}
+    	.container-top{
+    		width: 100%;
+    		margin:0 auto;
+    		font-size:14px;
+    		padding:5px 0;
+    		text-align:center;
+    		border-bottom: 1px solid #e3e3e3;
+    	}
+    	.btn{
+    		margin: 0 5px;
+		    padding: 4px 10px;
+		    border-radius: 3px;
+		    font-size: 12px;
+		    text-align:center;
+		    vertical-align:middle;
+		    border:1px solid  #f83838;
+		    background-color: rgba(255,255,255,0);
+		    color: #f83838;
+    	}
+    	section{
+    		padding:15px 20px;
+    		background-color:#fff;
+    	}
+    	section .l-c img{
+    		height:50px;
+    		width: 50px;
+    	}
+    	.l-c{
+    		width:52px;
+    	}
+    	.r-c{
+    		padding-left:10px;
+    	}
+    	.l-c p{
+    		text-align:center;
+    		font-size: 12px;
+    		color: #999;
+    		white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+    	}
+    	.left-cont{
+    		padding-bottom: 5px;
+		    color: #999;
+		    font-size: 14px;
+    	}
+    	.right-cont{
+    		text-align:right;
+    		font-size: 12px;
+    		color: #999;
+    	}
+    	.r-c p{
+    		line-height: 18px;
+    		color: #666;
+    		white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+    	}
+    	.icon-flower{
+    		display: inline-block;
+		    margin-right: 5px;
+		    width: 20px;
+		    height: 16px;
+		    background: url(./imgs/flower.png) no-repeat;
+    	}
+    	.loading_moer{
+	        padding:15px 0;
+	        text-align: center;
+	    }
+	    .loading_moer span{
+	        font-size: 12px;
+	    }
+	    .hot-img img{
+	    	width:100%;
+    		height:auto;
+    		vertical-align: top;
+	    }
+    </style>
+</head>
+<body>
+	<header>
+		<div class="container-top">
+			有什么想说的呢?赶紧<span class="btn">去评价</span>吧~
+		</div>
+		
+		
+	</header>
+	
+	<section class="flex-wrap">
+		<div class="l-c">
+			<img src="./imgs/head.jpg" alt="" />
+			<p>羅J.H</p>
+		</div>	
+		<div class="r-c flex-con">
+			<div class="flex-wrap">
+				<div class="flex-con left-cont"><i class="icon-flower"></i><span>好评</span></div>
+				<div class="flex-con right-cont"><span class="time">2018-04-27</span></div>
+			</div>
+			<p>看看，哈！</p>
+		</div>	
+	</section>
+	<footer>
+		<div tapmode onclick="LoadMore(this)" class="loading_moer">
+	        <i class="icon-down-circled"></i>
+	        <span>加载更多</span>
+	        <!-- <div class="none"></div> -->
+	    </div>
+	    <div class="hot-img">
+	    	<img src="./imgs/hot.gif" alt="" />
+	    </div>
+	</footer>
+	
+</body>
+<script type="text/javascript" src="../../public/script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		
+	};
+</script>
+</html>

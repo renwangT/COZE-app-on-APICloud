@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>root</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="./public/css/api.css" />
+    <link rel="stylesheet" href="./public/css/fontello.css">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            background-color: rgb(241,241,246);
+        }
+
+        .wrap {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-flex-flow: column;
+        }
+
+        .flex-1 {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex:1;
+        }
+
+        footer {
+            /*padding-top: 5px;*/
+            width: 100%;
+            background-color: #81a9c3;
+            color: white;
+            line-height: 22px;
+            text-align: center;
+        }
+        i{font-size: 22px!important;}
+        .active{
+            color:#4285f4;
+        }
+    </style>
+</head>
+
+<body class="wrap">
+
+    <section class="flex-1">
+
+    </section>
+
+    <footer class="aui-bar aui-bar-tab">
+        <div tapmode onclick="switchItem(0)" class="aui-bar-tab-item aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div tapmode onclick="switchItem(1)" class="aui-bar-tab-item" tapmode>
+            <i class="icon-videocam"></i>
+            <div class="aui-bar-tab-label">全部课程</div>
+        </div>
+        <div tapmode onclick="switchItem(2)" class="aui-bar-tab-item" tapmode>
+            <i class="icon-gift"></i>
+            <div class="aui-bar-tab-label">优惠券</div>
+        </div>
+        <div tapmode onclick="switchItem(3)" class="aui-bar-tab-item" tapmode>
+            <i class="icon-book"></i>
+            <div class="aui-bar-tab-label">我的课程</div>
+        </div>
+        <div tapmode onclick="switchItem(4)" class="aui-bar-tab-item" tapmode>
+            <i class="icon-user"></i>
+            <div class="aui-bar-tab-label">个人中心</div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        //输出Log，Log将显示在APICloud Studio控制台
+        api.parseTapmode();
+        items  = $api.domAll('.aui-bar-tab-item'),
+        icon = $api.domAll('i'),
+        len = items.length;
+        console.log("Hello World! Hello APICloud!");
+
+        api.openFrameGroup ({
+            name: 'rootG',
+            background: '#fff',
+            scrollEnabled: false,
+            rect: {
+                 x: 0,
+                 y: 0,
+                 w: 'auto',
+                 h: api.winHeight-items[0].offsetHeight
+            },
+            index: 0,
+            preload:0,
+            frames: [
+                {
+                    name: 'home',
+                    url: './view/home/home_frm.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'all',
+                    url: './view/all/all_frm.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'coupon',
+                    url: './view/coupon/coupon_frm.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'myCourse',
+                    url: './view/myCourse/myCourse_frm.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'myCenter',
+                    url: './view/myCenter/myCenter_frm.html',
+                    bgColor: 'rgb(241,241,245)'
+                }
+            ]
+        }, function(ret, err){
+            if( ret ){
+
+                api.sendEvent({
+                    name: 'changeFrameGroup',
+                    extra: ret.index
+                });
+                
+            }else{
+                //  alert( JSON.stringify( err ) );
+            }
+        });
+
+
+    };
+    var items,
+        icon,
+        len ;
+
+    //切换
+    function switchItem(index){
+    	if(index===4){
+    		if(!$api.getStorage('myInfo')){
+    			api.openWin({
+	                name: 'login',
+	                url: './view/login/login.html'
+                });
+                return false;
+    		}
+    	}
+        for(var i=0;i<len;i++){
+            items[i].classList.remove('active');
+            icon[i].classList.remove('active');
+        }
+        items[index].classList.add('active');
+        icon[index].classList.add('active');
+
+        api.setFrameGroupIndex({
+            name: 'rootG',
+            index: index
+        });
+
+    }
+
+</script>
+
+</html>

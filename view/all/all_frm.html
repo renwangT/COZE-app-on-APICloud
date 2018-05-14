@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>所有课程</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/fontello.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/all.0.css"> -->
+</head>
+    <style>
+    body,html{
+        height: 100%;
+        color: #333;
+        background-color: rgb(241,241,245);
+    }
+    .header-search{
+        padding: 7px 10px;
+    }
+    #search-input{
+        text-indent: 5px;
+    }
+    .top-but{
+        position: relative;
+        border-bottom: 1px solid #ccc;
+    }
+    .top-but .flex-con{
+        position: relative;
+        padding: 8px 0;
+        background-color: #fff;
+    }
+    .up{
+        display: none;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #23b8ff;
+    }
+
+    .sort-list{
+        display: none;
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #fff;
+    }
+    .sort-list li{
+        padding:10px 0 10px 12px ;
+
+        font-size: 14px;
+    }
+    .sort-list li.active{
+        border-left: 3px solid #23b8ff;
+        color: #23b8ff;
+        background-color: #f8f8f8
+    }
+
+    .all{
+        display: none;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 42px;
+        background-color: rgb(241, 241, 245);
+        z-index: 20;
+    }
+    .all h2{
+        text-align: center;
+        background-color: #fff;
+    }
+    .all li{
+        position: relative;
+        margin-top: 10px;
+        padding-left: 8px;
+        background-color: #fff;
+    }
+
+    .all li img{
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 7px;
+    }
+    /*.sort-list li:active{
+        border-left: 4px solid #23b8ff;
+        color: #23b8ff;
+    }*/
+    .newest{
+        background-color: #fff;
+        padding: 15px 10px;
+    }
+
+    .list-l{
+        position: relative;
+        width: 140px;
+        height: 80px;
+        background:url('../../public/image/list-bg.jpg') no-repeat center ;
+        background-size: cover;
+    }
+    .list-l p{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        font-size: 12px;
+        line-height: 16px;
+        background-color: #e85308;
+        color: #fff;
+        text-indent: 5px;
+    }
+
+    .list-r{
+        box-sizing: border-box;
+        padding-left: 10px;
+        line-height: 27px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: normal;
+    }
+    .list-r p{
+        color: #f6686e;
+        font-size: 12px;
+    }
+    .f-l{
+        color: #808080;
+        font-size: 12px;
+    }
+    .f-r{
+        color: #f83838;
+        font-size: 12px;
+        padding-right: 20px;
+    }
+    .num{
+        color: #4285f4;
+    }
+
+
+    .loading_moer{
+        padding:15px 0;
+        text-align: center;
+    }
+    .loading_moer span{
+        font-size: 12px;
+    }
+    .find-num{
+        display: none;
+        font-size: 14px;
+        line-height: 30px;
+        text-align: center;
+        color: #808081;
+        background: #efeff4;
+        border-color: #fff!important;
+    }
+    .none{
+        height: 17px;
+        background: url('./imgs/loaded.png') no-repeat center;
+        background-size: auto 100%;
+    }
+
+    </style>
+<body>
+    <div class="header-search">
+        <div class="aui-searchbar-input aui-border-radius">
+                <i class="aui-iconfont aui-icon-search"></i>
+                <input type="search" placeholder="请输入搜索内容" id="search-input">
+                <div class="aui-searchbar-clear-btn">
+                    <i class="aui-iconfont aui-icon-close"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="top-but flex-wrap aui-border-b">
+        <div tapmode onclick="fnSort()" class="btn flex-con flex-wrap flex-middle flex-center">
+            <span id="content">综合排序</span>
+            <i class="icon-angle-down"></i>
+            <div class="up">
+                <i class="icon-angle-up"></i>
+            </div>
+
+
+        </div>
+        <div tapmode onclick="fnAll()" class="btn flex-con flex-wrap flex-middle flex-center"><span id="all">全部分类</span><i class="icon-angle-down"></i></div>
+        <div class="sort-list">
+            <ul>
+                <li tapmode class="aui-border-b active">终合排序</li>
+                <li tapmode class="aui-border-b">免费课程</li>
+                <li tapmode class="aui-border-b">价格优先</li>
+                <li tapmode class="aui-border-b">人气优先</li>
+                <li tapmode class="aui-border-b">好评优先</li>
+            </ul>
+        </div>
+    </div>
+    <div class="all">
+        <h2>全部分类</h2>
+        <ul>
+            <li tapmode class="flex-wrap flex-middle aui-border-b">
+                <img src="../../public/image/1.png" alt="">
+                <span>名师讲堂</span>
+            </li>
+
+            <li tapmode class="flex-wrap flex-middle aui-border-b">
+                <img src="../../public/image/2.jpg" alt="">
+                <span>亲子教育</span>
+            </li>
+
+            <li tapmode class="flex-wrap flex-middle aui-border-b">
+                <img src="../../public/image/3.png" alt="">
+                <span>健康养生</span>
+            </li>
+
+            <li tapmode class="flex-wrap flex-middle aui-border-b">
+                <img src="../../public/image/4.png" alt="">
+                <span>父母课堂</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="newest aui-border-b">
+        <div class="list flex-wrap">
+            <div class="list-l">
+                <p>2人已学习</p>
+            </div>
+            <div class="list-r flex-con flex-vertical">
+                <h4 class="flex-con">三江茶话</h4>
+                <p class="flex-con">行走卧话风水</p>
+                <div class="f-c flex-con">
+                    <div class="f-l">前天更新</div>
+                    <div class="f-r">免费</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="find-num aui-border-b">
+        共找到<span class="num">0</span>门课程
+    </div>
+    <div tapmode onclick="LoadMore(this)" class="loading_moer">
+        <i class="icon-down-circled"></i>
+        <span>加载更多</span>
+        <!-- <div class="none"></div> -->
+    </div>
+
+</body>
+<script type="text/javascript" src="../../public/script/api.js"></script>
+<script src="./script/all.js"></script>
+</html>

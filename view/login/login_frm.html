@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/css/fontello.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="head-top flex-wrap flex-center flex-middle">
+			<img src="../../public/image/bg.jpg" alt="" />
+		</div>
+		<div class="enter-cont aui-list aui-form-list">
+			<div class="list">
+				<div class="border item-container flex-wrap flex-middle">
+					<label for="phone"><i class="icon-user"></i></label>
+					<input class="flex-con" type="number" id="phone" placeholder="手机号码/邮箱"/>
+				</div>
+				
+			</div>
+
+			<div class="list flex-wrap flex-middle">
+				<div class="item-container flex-wrap flex-middle">
+					<label for="pwd">
+					<i class="icon-lock"></i>
+					</label>
+					<input class="flex-con" type="text" id="pwd" placeholder="密码"/>
+					<div class="forget"><span>忘记密码</span></div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="foot">
+			<div tapmode onclick="fnLogin()" class="btn">
+				<span>登录</span>
+			</div>
+		</div>
+		<div class="foot-item">
+			<div class="foot-container flex-wrap flex-center flex-middle">
+				<div tapmode onclick="fnRegister()" class="regsiter"><span>注册账号</span></div>
+				<div class="center-border">|</div>
+				<div tapmode onclick="fnNoPwdLogin()" class="no-pwd"><span>无密码登录</span></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../../public/script/api.js"></script>
+<script>
+	apiready = function (){
+		api.parseTapmode();
+	}
+	function fnLogin(){
+		var myInfo = {
+        	name : ''
+        }
+        $api.setStorage('myInfo',myInfo);
+        api.closeToWin({
+        	name : 'root'
+        })
+	}
+	function fnRegister(){
+		api.openWin({
+	        name: 'register',
+	        url: '../register/register.html'
+        });
+	}
+	function fnNoPwdLogin(){
+		api.openWin({
+	        name: 'no-pwd',
+	        url: '../register/no-pwd.html',
+	        
+        });
+	}
+</script>
+</html>

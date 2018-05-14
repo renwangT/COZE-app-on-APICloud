@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的课程</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+
+</head>
+<style>
+    body,html{
+        height: 100%;
+    }
+    .header-container{
+        background-color: #fff;
+        line-height: 44px;
+        text-align: center;
+        color: #333;
+    }
+    .btn{
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+    .active{
+        color: #4285f4;
+    }
+    .active::after{
+        content:'';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border: 1.5px solid #4285f4;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 5px;
+
+    }
+</style>
+<body>
+<div class="header-container flex-wrap">
+    <div class="btn-container flex-con">
+        <div tapmode onclick="selectInde(0)" class="btn active">全部课程</div>
+    </div>
+    <div class="btn-container flex-con">
+        <div tapmode onclick="selectInde(1)" class="btn">代付款</div>
+    </div>
+    <div class="btn-container flex-con">
+        <div tapmode onclick="selectInde(2)" class="btn">已付款</div>
+    </div>
+</div>
+</body>
+<script src="../../public/script/api.js"></script>
+<script>
+    var item = document.querySelectorAll('.btn');
+    var len = item.length;
+    function selectInde(index){
+
+        for(var i=0;i<len;i++){
+            item[i].classList.remove('active');
+        }
+        item[index].classList.add('active');
+        api.setFrameGroupIndex({
+            name: 'group1',
+            index: index
+        });
+    }
+    apiready = function(){
+
+        api.parseTapmode();
+        openFrameGroup()
+        //监听frame切换
+        api.addEventListener({
+            name: 'changeFrameGroup'
+        }, function(ret, err){
+            if( ret ){
+                closeFrameGroup()
+            }
+        });
+        api.addEventListener({
+            name: 'changeFrameGroup'
+        }, function(ret, err){
+            if( ret ){
+                if(ret.value == 3){
+                    openFrameGroup()
+                    return false;
+                }
+                closeFrameGroup()
+            }
+        });
+
+
+    }
+    function openFrameGroup(){
+        var h = document.body.offsetHeight-44;
+
+        api.openFrameGroup ({
+            name: 'group1',
+            background: 'rgb(241,241,245)',
+            scrollEnabled: false,
+            rect: {
+                 x: 0,
+                 y: 44,
+                 w: 'auto',
+                 h: h
+            },
+            index: 0,
+            preload:1,
+            frames: [
+                {
+                    name: 'my_course_frm0',
+                    url: './my_course_frm0.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'my_course_frm1',
+                    url: './my_course_frm1.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'my_course_frm2',
+                    url: './my_course_frm2.html',
+                    bgColor: 'rgb(241,241,245)'
+                }
+            ]
+        }, function(ret, err){
+            if( ret ){
+                //  alert( JSON.stringify( ret ) );
+            }else{
+                //  alert( JSON.stringify( err ) );
+            }
+        });
+    }
+    function closeFrameGroup(){
+        api.closeFrameGroup({
+            name: 'group1'
+        });
+    }
+</script>
+</html>

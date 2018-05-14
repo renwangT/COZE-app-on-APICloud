@@ -1,0 +1,204 @@
+html,body{
+    background: rgb(244,244,244);
+    overflow:hidden;
+}
+.header-top{
+    position: relative;
+    width: 100%;
+    height:212px;
+    background:url('../imgs/bg.jpg') no-repeat center;
+    background-size: auto 100%;
+}
+.bg-color{
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,.5) ;
+}
+.setting{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 72px;
+    
+    
+}
+.on{
+    -webkit-animation: play 1.5s linear infinite;
+}
+@-webkit-keyframes play {
+    from{
+        -webkit-transform: rotate(0deg)
+    }
+    to{
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes play {
+    from{
+        -webkit-transform: rotate(0deg)
+    }
+    to{
+        -webkit-transform: rotate(360deg)
+    }
+}
+.setting img{
+	
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:29px;
+	height:29px;
+	margin-top:-14.5px;
+	margin-left:-14.5px;
+	
+}
+.vip-img{
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.vip-img img{
+	width:100px;
+	height:100px;
+}
+.h-container{
+	width:66px;
+	height:66px;
+	margin:0 auto;
+	text-align:center;
+	line-height:66px;
+	padding:3px;
+	background-color:rgba(225,225,225,.5);
+	border-radius:50%;
+	margin-bottom:10px;
+	overflow:hidden;
+	-animation: sway 10s ease-in-out infinite;
+    --webkit-animation: sway 10s ease-in-out infinite;
+}
+.h-container img{
+	display:inline-block;
+	width:100%;
+	border-radius:50%;
+}
+@keyframes sway{
+  0% {transform: translate3d(0,20px,0) rotate(-15deg); }
+  17% {transform: translate3d(0,0px,0) rotate(25deg); }
+  34% {transform: translate3d(0,-20px,0) rotate(-20deg); }
+  50% {transform: translate3d(0,-10px,0) rotate(15deg); }
+  67% {transform: translate3d(0,10px,0) rotate(-25deg); }
+  84% {transform: translate3d(0,15px,0) rotate(15deg); }
+  100% {transform: translate3d(0,20px,0) rotate(-15deg); }
+}
+@-webkit-keyframes sway{
+  0% {-webkit-transform: translate3d(0,20px,0) rotate(-15deg); }
+  17% {-webkit-transform: translate3d(0,10px,0) rotate(25deg); }
+  34% {-webkit-transform: translate3d(0,20px,0) rotate(-20deg); }
+  50% {-webkit-transform: translate3d(0,50px,0) rotate(15deg); }
+  67% {-webkit-transform: translate3d(0,40px,0) rotate(-25deg); }
+  84% {-webkit-transform: translate3d(0,0px,0) rotate(15deg); }
+  84% {-webkit-transform: translate3d(0,30px,0) rotate(15deg); }
+  100% {-webkit-transform: translate3d(0,20px,0) rotate(-15deg); }
+}
+
+.header-cont p,.name-cont{
+	text-align:center;
+	color:#fff;
+	font-size:14px;
+}
+.water{
+	position: absolute;
+    left:0;
+    bottom: 0px;
+    
+    width:4500px;
+    height:50px;
+    z-index: 3;
+    overflow:hidden;
+
+}
+.wave {
+  display:block;
+  position: absolute;
+  z-index: 3;
+  top:0;
+  left:0;
+  width:100%;
+  height:auto;
+  -webkit-transform:translate3d(-1536px,0,0)
+  animation: wave 5s linear infinite;
+  -webkit-animation: wave 8s linear infinite;
+}
+.wave-bg {
+  z-index: 4;
+  opacity: 0.725;
+  -webkit-transform:translate3d(-1083px,0,0)
+  animation: wave-bg 2s linear infinite;
+  -webkit-animation: wave-bg 5s linear infinite;
+}
+@keyframes wave{
+  from {transform: translate3d(-1536px,0,0);}
+  to {transform: translate3d(-3350px,0,0);}
+}
+@-webkit-keyframes wave{
+  from {-webkit-transform: translate3d(-1536px,0,0);}
+  to {-webkit-transform: translate3d(-3350px,0,0);}
+}
+@keyframes wave-bg{
+  from {transform: translate3d(-1083px,0,0);}
+  to {transform: translate3d(-3091px,0,0);}
+}
+@-webkit-keyframes wave-bg{
+  from {-webkit-transform: translate3d(-1083px,0,0);}
+  to {-webkit-transform: translate3d(-3091px,0,0);}
+}
+
+.middle{
+	width:100%;
+	text-align: center;
+	padding: 20px 0;
+}
+.num{
+	color: #F05654;
+	font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+.middle p{
+	color: #999;
+    font-size: 12px;
+}
+.list-item{
+	padding:10px 0;
+}
+.list-item li{
+	padding: 10px 0;
+	text-align: center;
+	line-height: 24px;
+    color: #535353;
+    font-size: 14px;
+}
+.footer-btn{
+	width:90%;
+	margin:0 auto;
+	margin-top:14px;
+	border:1px solid #dcdcdc;
+	line-height:40px;
+	color: #636282;
+	text-align:center;
+	font-size:16px;
+	border-radius:5px;
+	background-color:#fff;
+}
+.orange{
+	color :#f9681e;
+}
+.red {
+    color: #f75858;
+}
+.blue {
+    color: #3665D2;
+}
+.pink {
+    color: #f6686e;
+}

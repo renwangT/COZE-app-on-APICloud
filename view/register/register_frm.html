@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+    <link rel="stylesheet" href="./css/css/fontello.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="head-top flex-wrap flex-center flex-middle">
+			<img src="../../public/image/bg.jpg" alt="" />
+		</div>
+		<div class="enter-cont">
+			<div class="list">
+				<div class="border item-container flex-wrap flex-middle">
+					<label for="phone"><i class="icon-user"></i></label>
+					<input class="flex-con" type="number" id="phone" placeholder="请填写手机号"/>
+				</div>
+				
+			</div>
+
+			<div class="list flex-wrap flex-middle">
+				<div class="border item-container flex-wrap flex-middle">
+					<label for="pwd">
+					<i class="icon-lock"></i>
+					</label>
+					<input class="flex-con" type="text" id="pwd" placeholder="密码"/>
+					<div class="forget"><i class="icon-eye"></i></div>
+				</div>
+				
+			</div>
+			<div class="list flex-wrap flex-middle">
+				<div class="item-container flex-wrap flex-middle">
+					<label for="pwd">
+					<i class="icon-lock"></i>
+					</label>
+					<input class="flex-con" type="text" id="pwd" placeholder="确认密码"/>
+					<div class="forget"><i class="icon-eye"></i></div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="foot">
+			<div class="btn">
+				<span>注册</span>
+			</div>
+		</div>
+		<div class="foot-item">
+			<div class="foot-container flex-wrap flex-center flex-middle">
+				<div tapmode onclick="fnLogin()" class="regsiter"><span>立即登录</span></div>
+				<div class="center-border">|</div>
+				<div tapmode onclick="fnNoPwdLogin()" class="no-pwd"><span>无密码登录</span></div>
+				<div class="center-border">|</div>
+				<div tapmode onclick="fnFindPwd()" class="no-pwd"><span>找回密码</span></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../../public/script/api.js"></script>
+<script>
+	apiready = function(){
+		api.parseTapmode();
+	};
+	function fnLogin(){
+		api.closeToWin({
+			name:'login'
+		})
+	}
+	function fnNoPwdLogin(){
+		api.openWin({
+	        name: 'no-pwd',
+	        url: 'no-pwd.html',
+	        
+        });
+	}
+	function fnFindPwd(){
+		api.openWin({
+	        name: 'find-pwd',
+	        url: 'find-pwd.html'
+        });
+	}
+</script>
+</html>

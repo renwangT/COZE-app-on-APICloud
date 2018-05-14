@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>my_course_frm0</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+    <link rel="stylesheet" href="./css/my_course.css">
+</head>
+<body>
+    <div class="box">
+        <div tapmode onclick="goHome()" class="none flex-wrap flex-middle flex-center">
+            <div class="container">
+                <img src="../../public/image/no_bg.png" alt="">
+                <div class="text"><span>没有找到任何课程~</span></div>
+                <div class="go-t"><span>快到首页去看看吧</span></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="../../public/script/api.js"></script>
+<script src="./script/my_course.js"></script>
+<script>
+    apiready = function(){
+        api.parseTapmode();
+        
+    }
+</script>
+</html>

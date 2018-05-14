@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>详情页</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css" />
+</head>
+<style>
+	body,html{
+		position:relative;
+		height:100%;
+	}
+	.wrap{
+		height:100%;
+	}
+	header img{
+		width:100%;
+		height:auto;
+		vertical-align: top;
+	}
+	.header-container{
+        background-color: rgb(241,241,245);
+        line-height: 44px;
+        text-align: center;
+        color: #666;
+        padding-top:5px;
+    }
+    .btn{
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 16px;
+        border-bottom: 2px solid #dedede;
+    }
+    .active{
+        color: #4285f4;
+        border-bottom: 2px solid #4285f4;
+    }
+	section{
+		height:100%;
+	}
+	footer{
+		position:fixed;
+		bottom:0;
+		left:0;
+		width:100%;
+		height: 54px;
+		line-height:54px;
+		box-sizing:border-box;
+		border:1px solid #e2e2e2;
+	}
+	.item{
+		width:25%;
+		box-sizing:border-box;
+		text-align:center;
+		border-right:1px solid #e2e2e2;
+		font-size:16px;
+		color: #666;
+	}
+	.ico-lessonqq{
+		display:inline-block;
+		width: 23px;
+		height:23px;
+		background:url('./imgs/ico-lessonqq.png') no-repeat center;
+		background-size:cover;
+		vertical-align:middle;
+		margin-right:5px;
+	}
+	.ico-collect{
+		display:inline-block;
+		width:25px;
+		height:23px;
+		background:url('./imgs/ico-collect.png') no-repeat;
+		background-size:cover;
+		vertical-align:middle;
+		margin-right:5px;
+	}
+	.start-study{
+		background-color:#4285f4;
+		font-size: 23px;
+		color:#fff;
+		text-align:center;
+	}
+	
+</style>
+<body>
+	<div class="wrap flex-vertical">
+		<header>
+			<div class="img-container">
+				<img src="../../public/image/list-bg.jpg" alt="" />
+			</div>
+			<div class="header-container flex-wrap">
+			    <div class="btn-container flex-con">
+			        <div tapmode onclick="selectInde(0)" class="btn active">详情</div>
+			    </div>
+			    <div class="btn-container flex-con">
+			        <div tapmode onclick="selectInde(1)" class="btn">目录</div>
+			    </div>
+			    <div class="btn-container flex-con">
+			        <div tapmode onclick="selectInde(2)" class="btn">评论(<span id="num">1</span>)</div>
+			    </div>
+			</div>
+		</header>
+		<section class="flex-con">
+			
+		</section>
+		<footer class="flex-wrap">
+			<div class="item">
+				<i class="ico-lessonqq"></i>
+				<span>咨询</span>
+			</div>
+			<div class="item">
+				<i class="ico-collect"></i>
+				<span>收藏</span>
+			</div>
+			
+			<div class="start-study flex-con">
+				<span>开始学习</span>
+			</div>
+		</footer>
+	</div>
+	
+</body>
+<script src="../../public/script/api.js"></script>
+<script>
+    var item = document.querySelectorAll('.btn');
+    var len = item.length;
+    function selectInde(index){
+
+        for(var i=0;i<len;i++){
+            item[i].classList.remove('active');
+        }
+        item[index].classList.add('active');
+        api.setFrameGroupIndex({
+            name: 'group1',
+            index: index
+        });
+    }
+    apiready = function(){
+
+        api.parseTapmode();
+        openFrameGroup()
+        //监听frame切换
+       
+
+    }
+    function openFrameGroup(){
+    	var y = document.querySelector('header').offsetHeight;
+        var h = api.winHeight-y-54
+
+        api.openFrameGroup ({
+            name: 'group1',
+            background: 'rgb(241,241,245)',
+            scrollEnabled: false,
+            rect: {
+                 x: 0,
+                 y: y,
+                 w: 'auto',
+                 h: h
+            },
+            index: 0,
+            preload:1,
+            frames: [
+                {
+                    name: 'details_frm0',
+                    url: './details_frm0.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'details_frm1',
+                    url: './details_frm1.html',
+                    bgColor: 'rgb(241,241,245)'
+                },
+                {
+                    name: 'details_frm2',
+                    url: './details_frm2.html',
+                    bgColor: 'rgb(241,241,245)'
+                }
+            ]
+        }, function(ret, err){
+            if( ret ){
+                //  alert( JSON.stringify( ret ) );
+            }else{
+                //  alert( JSON.stringify( err ) );
+            }
+        });
+    }
+    function closeFrameGroup(){
+        api.closeFrameGroup({
+            name: 'group1'
+        });
+    }
+</script>
+</html>

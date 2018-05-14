@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>设置</title>
+    <link rel="stylesheet" type="text/css" href="../../public/css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/fontello.css"/>
+    <style>
+    	body,html{
+    		height:100%;
+    		background-color:rgb(239,239,244);
+    	}
+    	body{padding-top:44px;}
+    	header{
+    		width:100%;
+    		height:62px;
+    		box-sizing:border-box;
+    		background-color:#fff;
+    		line-height: 62px;
+    		padding-left:20px;
+    	}
+    	.r-c{
+    		text-align: right;
+    	}
+    	.head-img{
+    		width:30px;
+    		height:40px;
+    		vertical-align: middle;
+    		margin-right:5px;
+    	}
+    	.icon-right-open-mini{
+    		color:#d3d3d3;
+    		font-size:20px;
+    	}
+    	section{
+    		width:100%;
+    		box-sizing:border-box;
+    		padding-left:20px;
+    		background-color:#fff;
+    	}
+    	.container{
+    		width:100%;
+    		border-bottom:1px solid rgb(220,220,220);
+    		line-height: 40px;
+    	}
+    	section.first{
+    		margin-top:20px;
+    		border-top:1px solid rgb(220,220,220);
+    	}
+    	section.last .container{
+    		border:0;
+    	}
+    	.container label{
+    		display:block;
+    		width:30%;
+    		font-weight:600;
+    	}
+    	.container input{
+    		display:block;
+    		width:70%;
+    	}
+    	.foot{
+			padding:10px 0;
+		}
+		.btn{
+			width:95%;
+			padding:8px 0;
+			margin:0 auto;
+			color: #fff;
+			text-align : center;
+		    background-color: #04be02;
+		    border: 1px solid #04be02;
+		    border-radius:5px;
+		}
+    </style>
+</head>
+<body>
+	<header class="flex-wrap">
+		<div class="flex-con"><span>头像</span></div>
+		<div class="flex-con r-c" tapmode onclick="fnChooseHeadImage()"><img class="head-img" src="../../public/image/bg.jpg" alt="" /><i class="icon-right-open-mini"></i></div>
+	</header>
+	<section class="first">
+		<div class="container flex-wrap">
+			<label for="user-name">昵称</label><input type="text" id="user-name" placeholder="请填写昵称"/>
+		</div>
+		
+	</section>
+	<section>
+		<div class="container flex-wrap">
+			<label for="true-name">真实姓名</label><input type="text" id="true-name" placeholder="请填写真实姓名"/>
+		</div>
+		
+	</section>
+	<section>
+		<div class="container flex-wrap">
+			<label for="sex">性别</label><input type="text" id="sex" disabled="true" value="保密"/>
+		</div>
+		
+	</section>
+	<section>
+		<div class="container flex-wrap">
+			<label for="birth">出生日期</label><input type="text" id="birth" placeholder="请选择出生日期"/>
+		</div>
+		
+	</section>
+	<section class="last">
+		<div class="container flex-wrap">
+			<label for="address">居住地址</label><input type="text" id="address" placeholder="请选择地区"/>
+		</div>	
+	</section>
+	
+	<section class="first">
+		<div class="container flex-wrap">
+			<div class="l-c flex-con"><span>个人信息</span></div>
+			<div class="r-c flex-con"><i class="icon-right-open-mini"></i></div>
+		</div>
+	</section>
+	<section>
+		<div class="container flex-wrap">
+			<div class="l-c flex-con"><span>联系方式</span></div>
+			<div class="r-c flex-con"><i class="icon-right-open-mini"></i></div>
+		</div>
+	</section>
+	<section>
+		<div class="container flex-wrap">
+			<div class="l-c flex-con">教育信息</div>
+			<div class="r-c flex-con"><i class="icon-right-open-mini"></i></div>
+		</div>
+	</section>
+	<section class="last">
+		<div class="container flex-wrap">
+			<div class="l-c flex-con">工作信息</div>
+			<div class="r-c flex-con"><i class="icon-right-open-mini"></i></div>
+		</div>
+	</section>
+	<footer class="foot">
+		<div tapmode onclick="fnLogin()" class="btn">
+			<span>保存</span>
+		</div>
+	</footer>
+</body>
+<script type="text/javascript" src="../../public/script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		
+	};
+	var typeArr = ['camera','album']
+	function fnChooseHeadImage(){
+		api.actionSheet({
+		    cancelTitle: '取消',
+		    buttons: ['相机', '相册']
+		},function(ret,err){
+			var index = ret.buttonIndex;
+			if(index<=2)getPicture(typeArr[index-1])
+		})
+	}
+	function getPicture(type){
+		api.getPicture({
+		    sourceType: type,
+		    encodingType: 'jpg',
+		    mediaValue: 'pic',
+		    destinationType: 'url',
+		    allowEdit: true,
+		    quality: 50,
+		    targetWidth: 100,
+		    targetHeight: 100,
+		    saveToPhotoAlbum: false
+		}, function(ret, err) {
+		    if (ret) {
+		        alert(JSON.stringify(ret));
+		    } else {
+		        alert(JSON.stringify(err));
+		    }
+		});
+
+	}
+</script>
+</html>

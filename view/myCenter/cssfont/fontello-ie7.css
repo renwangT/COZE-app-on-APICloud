@@ -1,0 +1,23 @@
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+ 
+  /* fix buttons height */
+  line-height: 1em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+}
+ 
+.icon-heart { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
+.icon-mobile { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;'); }
+.icon-videocam { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;'); }
+.icon-money { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0d6;&nbsp;'); }
+.icon-angle-right { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf105;&nbsp;'); }
+.icon-gittip { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf184;&nbsp;'); }
+.icon-share { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf1e0;&nbsp;'); }
+.icon-diamond { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf219;&nbsp;'); }
+.icon-hourglass-2 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf252;&nbsp;'); }
+.icon-shopping-bag { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf290;&nbsp;'); }
+.icon-free-code-camp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf2c5;&nbsp;'); }
