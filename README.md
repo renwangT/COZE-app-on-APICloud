@@ -3,10 +3,10 @@ The interview company asked for webapp to be encapsulated as an app with APIClou
 
 git clone 
 
-1，在你的APICloud 平台新建一个项目
+1，在你的APICloud 平台新建一个项目<br>
 ###############
-2，将克隆的代码复制到你的项目中 
+2，将克隆的代码复制到你的项目中 <br>
 ###################
-3，更改你新建项目的ID，在提交
+3，更改你新建项目的ID，在提交<br>
 #################
 4，wifi/全量同步
